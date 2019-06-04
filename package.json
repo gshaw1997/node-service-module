@@ -1,7 +1,7 @@
 {
   "name": "node-service-module",
   "version": "0.0.1",
-  "description": "Re-usable components for building robust modules in Node.Js",
+  "description": "Reusable components for building robust modules in Node.Js",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
