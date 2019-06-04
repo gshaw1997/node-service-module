@@ -1,7 +1,16 @@
 import { DependencyContainer } from './DependencyContainer';
 
-import { ServiceModule } from './ServiceModule';
+import { ServiceModule, serviceModule } from './ServiceModule';
 
-import { ExpressServiceModule } from './ExpressServiceModule';
+import {
+  ExpressServiceModule,
+  expressServiceModule,
+} from './ExpressServiceModule';
 
-export { DependencyContainer, ServiceModule, ExpressServiceModule };
+export {
+  DependencyContainer,
+  ServiceModule,
+  serviceModule,
+  ExpressServiceModule,
+  expressServiceModule,
+};
