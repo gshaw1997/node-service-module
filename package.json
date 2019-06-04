@@ -1,6 +1,6 @@
 {
   "name": "node-service-module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Reusable components for building robust modules in Node.Js",
   "main": "dist/index.js",
   "scripts": {
