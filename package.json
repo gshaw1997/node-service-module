@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Reusable components for building robust modules in Node.Js",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
