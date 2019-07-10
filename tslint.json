@@ -13,6 +13,8 @@
     "member-ordering": false,
     "ban-types": false,
     "arrow-parens": false,
+    "array-type": false,
+    "no-unused-expression": false,
     "trailing-comma": [
       false,
       {

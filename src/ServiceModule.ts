@@ -14,7 +14,7 @@ type Constructor<T> = Function & { prototype: T };
  */
 export interface ClassProvider {
   provide: Constructor<any> | InjectionKey;
-  useClass: Class<any>;
+  useClass: Class<any> | any;
 }
 
 /**
@@ -116,11 +116,13 @@ export abstract class ServiceModule {
    *
    * @static
    * @template T
-   * @param {Constructor<T>} dependency
+   * @param {Constructor<T> | InjectionKey} dependency
    * @returns {T}
    * @memberof ServiceModule
    */
-  public static resolveDependency<T>(dependency: Constructor<T>): T {
+  public static resolveDependency<T>(
+    dependency: Constructor<T> | InjectionKey,
+  ): T {
     if (!this._initialized) {
       throw new Error(
         `${
@@ -128,10 +130,16 @@ export abstract class ServiceModule {
         } has not yet been initialized. Please use the initializer to utilize this module.`,
       );
     }
-    if (!this.providerKeys.includes(dependency.name)) {
-      throw new Error(`No provider for ${dependency.name}.`);
+    let dependencyKey = '';
+    if (typeof dependency === 'string') {
+      dependencyKey = dependency;
+    } else {
+      dependencyKey = dependency.name;
     }
-    return this.dependencies.resolve(dependency.name);
+    if (!this.providerKeys.includes(dependencyKey)) {
+      throw new Error(`Nothing provided for ${dependencyKey}.`);
+    }
+    return this.dependencies.resolve(dependencyKey);
   }
 }
 
